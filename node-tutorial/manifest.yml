@@ -1,0 +1,24 @@
+applications:
+- name: myapp
+  routes:
+  - route: afc37fd9trialjtnnode-tutorial.cfapps.us10.hana.ondemand.com
+  path: myapp
+  memory: 128M
+  services:
+    - jtnuaanode-tutorial  
+- name: web
+  routes:
+  - route: afc37fd9trialjtnwebapp.cfapps.us10.hana.ondemand.com
+  path: web
+  memory: 128M
+  env:
+    destinations: >
+      [
+        {
+          "name":"myapp",
+          "url":"https://afc37fd9trialjtnnode-tutorial.cfapps.us10.hana.ondemand.com",
+          "forwardAuthToken": true
+        }
+      ]
+  services:
+    - jtnuaanode-tutorial 
