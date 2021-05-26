@@ -1,0 +1,36 @@
+{
+  "welcomeFile": "/index.html",
+  "authenticationMethod": "route",
+  "routes": [
+    {
+      "source": "^/resources/(.*)$",
+      "target": "/resources/$1",
+      "authenticationType": "none",
+      "destination": "ui5"
+    },
+    {
+      "source": "^/test-resources/(.*)$",
+      "target": "/test-resources/$1",
+      "authenticationType": "none",
+      "destination": "ui5"
+    },
+    {
+      "source": "^/getUser/$",
+      "target": "/",
+      "authenticationType": "xsuaa",
+      "destination": "helloUser"
+    },
+    {
+      "source": "^/northwind/(.*)$",
+      "target": "/v2/Northwind/Northwind.svc/$1",
+      "authenticationType": "none",
+      "destination": "Northwind"
+    },
+    {
+      "source": "^(.*)$",
+      "target": "$1",
+      "service": "html5-apps-repo-rt",
+      "authenticationType": "xsuaa"
+    }
+  ]
+}
